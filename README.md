@@ -16,12 +16,12 @@ Reference: http://www.primepuzzles.net/puzzles/puzz_130.htm
 
 The solution can be found with N=22 to N=29 and N=31. N=30 is not solvable.
 
-    O---O---O
-   / \     / \
-  O   O   O   O
- /     \ /     \
-O---O---O---O---O
- \     / \     /
-  O   O   O   O
-   \ /     \ /
-    O---O---O
+	    O---O---O
+	   / \     / \
+	  O   O   O   O
+	 /     \ /     \
+	O---O---O---O---O
+	 \     / \     /
+	  O   O   O   O
+	   \ /     \ /
+	    O---O---O
