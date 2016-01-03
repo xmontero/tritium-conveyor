@@ -7,10 +7,14 @@ namespace AppBundle\Model;
  */
 class Chromosome
 {
+	private $positions;
+
 	function __construct( $positions )
 	{
 		$this->assertInputIsArrayOf19Ints( $positions );
 		$this->assertInputContainsNumbersFrom1To19( $positions );
+
+		$this->positions = $positions;
 	}
 
 	private function assertInputIsArrayOf19Ints( $positions )
@@ -58,5 +62,10 @@ class Chromosome
 		}
 
 		return $result;
+	}
+
+	public function getPosition( $position )
+	{
+		return $this->positions[ $position - 1 ];
 	}
 }

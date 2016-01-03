@@ -19,10 +19,10 @@ class ChromosomeTest extends \PHPUnit_Framework_TestCase
 	{
 		return array
 		(
-			array( array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ) ),
-			array( array( 1, 19, 2, 18, 3, 17, 4, 16, 5, 15, 6, 14, 7, 13, 8, 12, 9, 11, 10 ) ),
-			array( array( 1, 19, 9, 18, 3, 13, 4, 16, 5, 6, 15, 14, 7, 17, 8, 12, 2, 11, 10 ) ),
-			array( array( 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ) ),
+			array( array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 ), 4, 4 ),
+			array( array( 1, 19, 2, 18, 3, 17, 4, 16, 5, 15, 6, 14, 7, 13, 8, 12, 9, 11, 10 ), 13, 14 ),
+			array( array( 1, 19, 9, 18, 3, 13, 4, 16, 5, 6, 15, 14, 7, 17, 8, 12, 2, 11, 10 ), 9, 3 ),
+			array( array( 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ), 1, 19 ),
 		);
 	}
 
@@ -70,5 +70,14 @@ class ChromosomeTest extends \PHPUnit_Framework_TestCase
 			array( array( 1, 19, 2, 20 /*18*/, 3, 17, 4, 16, 5, 15, 6, 14, 7, 13, 8, 12, 9, 11, 10 ) ),	// Number greater than 19.
 			array( array( 1, 19, 2,  0 /*18*/, 3, 17, 4, 16, 5, 15, 6, 14, 7, 13, 8, 12, 9, 11, 10 ) ),	// Number smaller than 1.
 		);
+	}
+
+	/**
+	 * @dataProvider newProvider
+	 */
+	public function testPositions( $positions, $expected, $position )
+	{
+		$sut = new Chromosome( $positions );
+		$this->assertEquals( $expected, $sut->getPosition( $position ) );
 	}
 }
